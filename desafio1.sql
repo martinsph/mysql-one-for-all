@@ -6,7 +6,9 @@ USE SpotifyClone;
 CREATE TABLE usuarios(
     usuario_id INT PRIMARY KEY AUTO_INCREMENT,
     usuario_nome VARCHAR(50) NOT NULL,
-    usuario_idade INT NOT NULL
+    usuario_idade INT NOT NULL,
+    plano_id INT NOT NULL,
+    FOREIGN KEY (plano_id) REFERENCES planos(id)
 ) engine = InnoDB;
 
 CREATE TABLE seguidores(
@@ -38,7 +40,7 @@ CREATE TABLE artistas(
 
 CREATE TABLE planos(
     plano_id INT PRIMARY KEY AUTO_INCREMENT,
-    plano_nome VARCHAR(20) NOT NULL,
+    plano_nome VARCHAR(30) NOT NULL,
     plano_valor NUMERIC(4, 2)
 ) engine = InnoDB;
 
@@ -52,10 +54,10 @@ CREATE TABLE historico_usuarios(
 
 INSERT INTO usuarios(usuario_nome, usuario_idade)
 VALUES
-  ('Thati', 23),
-  ('Cintia', 35),
-  ('Bill', 20),
-  ('Roger', 45);
+  ('Thati', 23, 1),
+  ('Cintia', 35, 2),
+  ('Bill', 20, 3),
+  ('Roger', 45, 1);
 
 INSERT INTO seguidores(usuario_id, artista_id)
 VALUES
@@ -85,14 +87,14 @@ VALUES
   ('Time Fireworks', 2),
   ('Magic Circus', 3),
   ('Honey, So Do I', 3),
-  ('Sweetie, Let\'s Go Wild', 3),
+  ("Sweetie, Let's Go Wild", 3),
   ('She Knows', 3),
   ('Fantasy For Me', 4),
   ('Celebration Of More', 4),
   ('Rock His Everything', 4),
   ('Home Forever', 4),
   ('Diamond Power', 4),
-  ('Honey, Let\'s Be Silly', 4),
+  ("Honey, Let's Be Silly", 4),
   ('Thang Of Thunder', 5),
   ('Words Of Her Life', 5),
   ('Without My Streets', 5);
