@@ -6,4 +6,3 @@ CREATE VIEW estatisticas_musicais AS
         (SELECT COUNT(album_id) AS `albuns` FROM albuns)
     FROM
         cancoes AS c;
-

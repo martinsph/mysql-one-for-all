@@ -9,4 +9,3 @@ CREATE VIEW historico_reproducao_usuarios AS
             INNER JOIN
         cancoes AS c ON hc.cancao_id = c.cancao_id
     ORDER BY `usuario` , `nome`;
-
